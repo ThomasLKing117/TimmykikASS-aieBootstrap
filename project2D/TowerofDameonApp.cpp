@@ -101,12 +101,12 @@ void TowerofDameonApp::draw()
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
 	m_2dRenderer->end();
 
-	m_keeprenderer->begin();
-	m_keeprenderer->setUVRect(int(m_timer * 8) % 3 / 2.9f, 0.f, .33, 1);
-	m_keeprenderer->drawSprite(m_shopkeep, 600, getWindowHeight() - 70, 38, 54);
-	m_keeprenderer->drawText(m_font, "ASHER : Hello young Hero! How may I aid you today on your quest?", 300, 100, 100);
+	m_2dRenderer->begin();
+	m_2dRenderer->setUVRect(int(m_timer * 8) % 3 / 2.9f, 0.f, .33, 1);
+	m_2dRenderer->drawSprite(m_shopkeep, 600, getWindowHeight() - 70, 38, 54);
+	m_2dRenderer->drawText(m_font, "ASHER : Hello young Hero! How may I aid you today on your quest?", 300, 100, 100);
 	
-	m_keeprenderer->end();
+	m_2dRenderer->end();
 }
 
 
