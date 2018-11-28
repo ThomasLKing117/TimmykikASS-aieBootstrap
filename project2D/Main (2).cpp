@@ -94,13 +94,13 @@ int main()
 	Attack georgeAttacks[3] = { houndBite, werewolfSlash, fullMoonWrath };
 	Attack dameonAttacks[4] = { shadowBurst, undeadCasting, necromancingStorm, apocalypticPlague };
 
-														 //H  //D //S  //A
-	Enemy enemy1("The Juggler",jugglerAttacks,			  100.0, 5.0, .2,  20,90);
-	Enemy enemy2("Kusunoki Masashige", kusunokiAttacks,	  150.0, 20.0,.15, 15,93);
-	Enemy enemy3("Jann", jannAttacks,					  300.0, 35.0, .1, 10,90);
-	Enemy enemy4("Deogen", deogenAttacks,				  350.0, 15.0, .1,  5,85);
-	Enemy enemy5("George Sands", georgeAttacks,			  400.0, 40.0,.16, 30,95);
-	Enemy boss("Dameon The Necromancer", dameonAttacks,   400.0, 24.0, .3, 35,80);
+																	  //H	 //D  //S  //A	//P
+	Enemy* enemy1 = new Enemy("The Juggler",jugglerAttacks,			  100.0, 5.0, .2,  20,90, 1);
+	Enemy* enemy2 = new Enemy("Kusunoki Masashige", kusunokiAttacks,  150.0, 20.0,.15, 15,93, 2);
+	Enemy* enemy3 = new Enemy("Jann", jannAttacks,					  300.0, 35.0, .1, 10,90, 3);
+	Enemy* enemy4 = new Enemy("Deogen", deogenAttacks,				  350.0, 15.0, .1,  5,85, 4);
+	Enemy* enemy5 = new Enemy("George Sands", georgeAttacks,		  400.0, 40.0,.16, 30,95, 5);
+	Enemy* boss = new Enemy("Dameon The Necromancer", dameonAttacks,  400.0, 24.0, .3, 35,80, 6);
 
 	//Opertors need to be overloaded before implementation
 	/*unorderedList<Enemy> ladder;
@@ -109,14 +109,14 @@ int main()
 
 
 
-	Hero hero1;
+	Hero *hero1;
 	Game tower;
-	hero1.initalizeHero();
+	hero1->initalizeHero();
 	std::string theirname;
-	hero1.AssignStartingPoints(theirname);
+	hero1->AssignStartingPoints(theirname);
 	tower.initializeshop();
 	tower.shop(hero1);
-	enemy1.fight(hero1, jugglerAttacks[0]);
+	enemy1->fight(hero1, jugglerAttacks[0]);
 
 	return 0;
 }

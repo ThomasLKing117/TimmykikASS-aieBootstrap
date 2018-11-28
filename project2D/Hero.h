@@ -28,7 +28,7 @@ public:
 	void takeDamage(float) override;
 
 	//The fight function calculates the total damage output of the enemy that is about to attack and then calls the take damage function with that value as its argument
-	void fight(Character&, Attack) override;
+	void fight(Character*, Attack) override;
 
 	//Prints the player's current statistics (accuracy, health, strength, defense) to the window
 	void viewStats();
@@ -54,7 +54,7 @@ public:
 	
 	//Initializes hero with base stats
 	void initalizeHero();
-	void AssignStartingPoints();
+	void AssignStartingPoints(std::string othername);
 
 	bool upgrade(int pchoice);
 

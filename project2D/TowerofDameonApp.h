@@ -10,6 +10,7 @@ protected:
 
 	aie::Renderer2D*	m_2dRenderer;
 	
+	aie::Texture*		m_IdleShopKeeper;
 
 	aie::Font*			m_font;
 

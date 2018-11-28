@@ -20,7 +20,7 @@ void Enemy::takeDamage(float damageTaken)
 }
 
 
-void Enemy::fight(Character& foe, Attack hit)
+void Enemy::fight(Character* foe, Attack hit)
 {
 	float damageTaken;
 
@@ -40,7 +40,7 @@ void Enemy::fight(Character& foe, Attack hit)
 	{
 		damageTaken = hit.mDamage + (hit.mDamage * mStrength);
 
-		foe.takeDamage(damageTaken);
+		foe->takeDamage(damageTaken);
 	}
 
 	//if the random accuracy value is more than the max value required to land a hit the enemy's damage is doubled
@@ -48,7 +48,7 @@ void Enemy::fight(Character& foe, Attack hit)
 	{
 		damageTaken = (hit.mDamage + (hit.mDamage * mStrength) * 2);
 
-		foe.takeDamage(damageTaken);
+		foe->takeDamage(damageTaken);
 	}
 }
 
@@ -66,7 +66,7 @@ Enemy::Enemy()
 
 
 
-Enemy::Enemy(std::string name, Attack otherlistofattacks[3], float health, float def, float str, int minAcc, int maxAcc)
+Enemy::Enemy(std::string name, Attack otherlistofattacks[3], float health, float def, float str, int minAcc, int maxAcc, int placement)
 {
 	//(Stats:.. Can be changed later)
 	mHealth = health;
@@ -74,7 +74,7 @@ Enemy::Enemy(std::string name, Attack otherlistofattacks[3], float health, float
 	mStrength = str;
 	mAccuracy.min = minAcc;
 	mAccuracy.max = maxAcc;
-
+	mPlacement = placement;
 
 	this->name = name;
 	for (int i = 0; i <= 2; i++)
@@ -84,8 +84,26 @@ Enemy::Enemy(std::string name, Attack otherlistofattacks[3], float health, float
 
 }
 
-//Enemy & Enemy::operator<=(Enemy & enemy)
-//{
-//
-//	return ;
-//}
+//This is comparing the placement of the enemies, used in sort()
+//If 1 <= 2, then 1 will be fought before 2.
+bool Enemy::operator<=(Enemy rhs)
+{
+	if (this->mPlacement <= rhs.mPlacement)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool Enemy::operator!=(Enemy rhs)
+{
+	return this->name != rhs.name;
+}
+
+bool Enemy::operator==(Enemy rhs)
+{
+	return this->name == rhs.name;
+}
