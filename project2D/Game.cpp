@@ -1,6 +1,6 @@
 
 #include <time.h>
-#include "..\SideProjectscpp\Game.h"
+#include "Game.h"
 #include<iostream>
 void Game::initializeshop()
 {

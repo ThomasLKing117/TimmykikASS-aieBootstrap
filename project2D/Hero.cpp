@@ -19,7 +19,7 @@ void Hero::takeDamage(float damageTaken)
 	}
 }
 
-void Hero::fight(Character&foe, Attack hit)
+void Hero::fight(Character*foe, Attack hit)
 {
 	float damageTaken;
 
@@ -39,7 +39,7 @@ void Hero::fight(Character&foe, Attack hit)
 	{
 		damageTaken = hit.mDamage + (hit.mDamage * mStrength);
 
-		foe.takeDamage(damageTaken);
+		foe->takeDamage(damageTaken);
 	}
 
 	//if the random accuracy value is more than the max value required to land a hit the player's damage is doubled
@@ -47,7 +47,7 @@ void Hero::fight(Character&foe, Attack hit)
 	{
 		damageTaken = (hit.mDamage + (hit.mDamage * mStrength) * 2);
 
-		foe.takeDamage(damageTaken);
+		foe->takeDamage(damageTaken);
 	}
 }
 
@@ -122,9 +122,8 @@ void Hero::initalizeHero()
 	mAccuracy.max = 90;
 }
 
-void Hero::AssignStartingPoints()
+void Hero::AssignStartingPoints(std::string othername)
 {
-	std::string othername;
 	int count = 0;
 	int tempChoice = 0;
 	while (count != 2)
