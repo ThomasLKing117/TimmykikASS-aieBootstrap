@@ -163,10 +163,37 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp" />
+    <ClCompile Include="armor.cpp" />
+    <ClCompile Include="attackitem.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="defenseitem.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="Ladder.cpp" />
+    <ClCompile Include="Main (2).cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="TowerofDameonApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Accuracy.h" />
     <ClInclude Include="Application2D.h" />
+    <ClInclude Include="armor.h" />
+    <ClInclude Include="attack.h" />
+    <ClInclude Include="attackitem.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="defenseitem.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="iterator.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="nodetype.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="TowerofDameonApp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
