@@ -57,7 +57,8 @@ void TowerofDameonApp::update(float deltaTime)
 		{
 		case newGame:
 		{
-			player->AssignStartingPoints();
+			std::string name;
+			player->AssignStartingPoints(name);
 		}
 		case(inShop):
 		{
@@ -91,7 +92,7 @@ void TowerofDameonApp::draw()
 	// begin drawing sprites
 	m_2dRenderer->begin();
 
-	m_tower->draw(m_2dRenderer,gamestate,m_timer);
+	m_tower->draw(m_2dRenderer,gamestate,m_timer, m_font);
 
 	
 
@@ -103,7 +104,7 @@ void TowerofDameonApp::draw()
 
 	m_2dRenderer->begin();
 	m_2dRenderer->setUVRect(int(m_timer * 8) % 3 / 2.9f, 0.f, .33, 1);
-	m_2dRenderer->drawSprite(m_shopkeep, 600, getWindowHeight() - 70, 38, 54);
+	m_2dRenderer->drawSprite(m_IdleShopKeeper, 600, getWindowHeight() - 70, 38, 54);
 	m_2dRenderer->drawText(m_font, "ASHER : Hello young Hero! How may I aid you today on your quest?", 300, 100, 100);
 	
 	m_2dRenderer->end();
